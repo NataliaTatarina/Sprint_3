@@ -2,3 +2,4 @@
 /target/
 /.allure/
 /pom with Allure.xml
+/.idea/
