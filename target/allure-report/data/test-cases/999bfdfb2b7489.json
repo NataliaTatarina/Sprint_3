@@ -1,0 +1,56 @@
+{
+  "uid" : "999bfdfb2b7489",
+  "name" : "createOrderWithDifferentColorsTest[5]",
+  "fullName" : "CreateOrderTest.createOrderWithDifferentColorsTest[5]",
+  "historyId" : "94e48956ef82139823bd771276e9afa6",
+  "time" : {
+    "start" : 1657186873792,
+    "stop" : 1657186874541,
+    "duration" : 749
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "CreateOrderTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "createOrderWithDifferentColorsTest[5]"
+  }, {
+    "name" : "suite",
+    "value" : "CreateOrderTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-T3TQ0F4"
+  }, {
+    "name" : "thread",
+    "value" : "4540@DESKTOP-T3TQ0F4.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "999bfdfb2b7489.json",
+  "parameterValues" : [ ]
+}

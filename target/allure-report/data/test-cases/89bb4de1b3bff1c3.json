@@ -1,0 +1,56 @@
+{
+  "uid" : "89bb4de1b3bff1c3",
+  "name" : "deleteCourierCorrectTest",
+  "fullName" : "DeleteCourierTest.deleteCourierCorrectTest",
+  "historyId" : "303895dd874bbc25a997e1c245f3eff9",
+  "time" : {
+    "start" : 1657186880015,
+    "stop" : 1657186881096,
+    "duration" : 1081
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : ""
+  }, {
+    "name" : "testClass",
+    "value" : "DeleteCourierTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "deleteCourierCorrectTest"
+  }, {
+    "name" : "suite",
+    "value" : "DeleteCourierTest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-T3TQ0F4"
+  }, {
+    "name" : "thread",
+    "value" : "4540@DESKTOP-T3TQ0F4.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "89bb4de1b3bff1c3.json",
+  "parameterValues" : [ ]
+}

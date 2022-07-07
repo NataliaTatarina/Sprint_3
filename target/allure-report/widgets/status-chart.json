@@ -1,0 +1,441 @@
+[ {
+  "uid" : "50b734aa5c01142c",
+  "name" : "createOrderWithDifferentColorsTest[1]",
+  "time" : {
+    "start" : 1657186867000,
+    "stop" : 1657186868042,
+    "duration" : 1042
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b8bcb6d84423e9ca",
+  "name" : "checkCreateOrderResponseContentsTrackTest[0]",
+  "time" : {
+    "start" : 1657186866054,
+    "stop" : 1657186866991,
+    "duration" : 937
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5a021129d2a47ed0",
+  "name" : "loginWithEmptyLoginFailsTest",
+  "time" : {
+    "start" : 1657186951082,
+    "stop" : 1657186952760,
+    "duration" : 1678
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6d6682429129d97c",
+  "name" : "checkCreateOrderResponseContentsTrackTest[5]",
+  "time" : {
+    "start" : 1657186874549,
+    "stop" : 1657186875412,
+    "duration" : 863
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e55040962001c6e5",
+  "name" : "createCouriersWithSameLoginFailTest",
+  "time" : {
+    "start" : 1657186855711,
+    "stop" : 1657186857591,
+    "duration" : 1880
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e57e68516f530c7c",
+  "name" : "createTwoEqualCouriersFailsTest",
+  "time" : {
+    "start" : 1657186853516,
+    "stop" : 1657186855300,
+    "duration" : 1784
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b47ebf0741b9bd3a",
+  "name" : "getOrderByTrackWithoutTrackFailsTest",
+  "time" : {
+    "start" : 1657186882253,
+    "stop" : 1657186883505,
+    "duration" : 1252
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3e67ccbfa9f31115",
+  "name" : "getOrderByTrackSuccessTest",
+  "time" : {
+    "start" : 1657186881104,
+    "stop" : 1657186882244,
+    "duration" : 1140
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d725afd78038ffba",
+  "name" : "acceptOrderWithoutOrderIdTest",
+  "time" : {
+    "start" : 1657186840588,
+    "stop" : 1657186844102,
+    "duration" : 3514
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2d0f5fe71b48984c",
+  "name" : "loginWithoutLoginFailsTest",
+  "time" : {
+    "start" : 1657186884904,
+    "stop" : 1657186886404,
+    "duration" : 1500
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "907fdf6fa65a079a",
+  "name" : "deleteCourierWrongRequestFailsTest",
+  "time" : {
+    "start" : 1657186878449,
+    "stop" : 1657186880004,
+    "duration" : 1555
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5a8a14d5046a2002",
+  "name" : "createCourierWithEmptyFirstnameTest",
+  "time" : {
+    "start" : 1657186857595,
+    "stop" : 1657186858764,
+    "duration" : 1169
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "534094dd7a2fd103",
+  "name" : "checkCreateOrderResponseContentsTrackTest[3]",
+  "time" : {
+    "start" : 1657186871170,
+    "stop" : 1657186871977,
+    "duration" : 807
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9b8d4540abd3fec1",
+  "name" : "createCourierWithoutLoginTest",
+  "time" : {
+    "start" : 1657186862357,
+    "stop" : 1657186862851,
+    "duration" : 494
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b2c09aff312a1b9a",
+  "name" : "loginWithWrongLoginFailsTest",
+  "time" : {
+    "start" : 1657187017777,
+    "stop" : 1657187019307,
+    "duration" : 1530
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fae2ca4b74040caf",
+  "name" : "createOrderWithDifferentColorsTest[2]",
+  "time" : {
+    "start" : 1657186868747,
+    "stop" : 1657186869479,
+    "duration" : 732
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2e8e75fbe55e06b3",
+  "name" : "loginWithoutPasswordFailsTest",
+  "time" : {
+    "start" : 1657186887775,
+    "stop" : 1657186949308,
+    "duration" : 61533
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f27f5f3c82b308f7",
+  "name" : "createCourierWithEmptyPasswordTest",
+  "time" : {
+    "start" : 1657186855303,
+    "stop" : 1657186855708,
+    "duration" : 405
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "829ecfdd01e17d9b",
+  "name" : "checkLoginResponseReturnsIdTest",
+  "time" : {
+    "start" : 1657186949317,
+    "stop" : 1657186951075,
+    "duration" : 1758
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "39561eb3b91f1f8c",
+  "name" : "createCourierWithEmptyLoginTest",
+  "time" : {
+    "start" : 1657186858774,
+    "stop" : 1657186859318,
+    "duration" : 544
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e954647b0a363c9",
+  "name" : "checkCourierSuccessReturnsOkTest",
+  "time" : {
+    "start" : 1657186862854,
+    "stop" : 1657186864052,
+    "duration" : 1198
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e5c790ba50e23a34",
+  "name" : "createCourierWithoutPasswordTest",
+  "time" : {
+    "start" : 1657186859321,
+    "stop" : 1657186859700,
+    "duration" : 379
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "10b079de4e319d6e",
+  "name" : "acceptOrderWithWrongOrderIdTest",
+  "time" : {
+    "start" : 1657186827487,
+    "stop" : 1657186840390,
+    "duration" : 12903
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "10634fa2c961e108",
+  "name" : "loginWithEmptyPasswordFailsTest",
+  "time" : {
+    "start" : 1657186952763,
+    "stop" : 1657187014502,
+    "duration" : 61739
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "999bfdfb2b7489",
+  "name" : "createOrderWithDifferentColorsTest[5]",
+  "time" : {
+    "start" : 1657186873792,
+    "stop" : 1657186874541,
+    "duration" : 749
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "597192aced241db5",
+  "name" : "loginCourierSuccessTest",
+  "time" : {
+    "start" : 1657186886408,
+    "stop" : 1657186887773,
+    "duration" : 1365
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "32815c05f8e413bf",
+  "name" : "checkOrderSuccessReturnsOkTest",
+  "time" : {
+    "start" : 1657186844116,
+    "stop" : 1657186847152,
+    "duration" : 3036
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7506789ee5411a6a",
+  "name" : "loginWithWrongPasswordFailsTest",
+  "time" : {
+    "start" : 1657187014512,
+    "stop" : 1657187017765,
+    "duration" : 3253
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "33ecb9a58715f623",
+  "name" : "checkCreateCourierSuccessStatusCodeTest",
+  "time" : {
+    "start" : 1657186859702,
+    "stop" : 1657186861109,
+    "duration" : 1407
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fd3070c8235a346b",
+  "name" : "createOrderWithDifferentColorsTest[4]",
+  "time" : {
+    "start" : 1657186871981,
+    "stop" : 1657186872901,
+    "duration" : 920
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d1d9b4315f21f03b",
+  "name" : "createCourierSuccessTest",
+  "time" : {
+    "start" : 1657186861113,
+    "stop" : 1657186862349,
+    "duration" : 1236
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4b7918508eea8c2c",
+  "name" : "checkCreateOrderResponseContentsTrackTest[1]",
+  "time" : {
+    "start" : 1657186868049,
+    "stop" : 1657186868744,
+    "duration" : 695
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a4cf056b0f38742",
+  "name" : "createOrderWithDifferentColorsTest[3]",
+  "time" : {
+    "start" : 1657186870361,
+    "stop" : 1657186871164,
+    "duration" : 803
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8ef7044ea9b51039",
+  "name" : "acceptOrderWithoutCourierIdTest",
+  "time" : {
+    "start" : 1657186847158,
+    "stop" : 1657186850274,
+    "duration" : 3116
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ab8501dde4c47c0",
+  "name" : "deleteCourierWithoutIdFailsTest",
+  "time" : {
+    "start" : 1657186876944,
+    "stop" : 1657186878446,
+    "duration" : 1502
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "77a236666b279cff",
+  "name" : "getOrderByTrackWithWrongTrackFailsTest",
+  "time" : {
+    "start" : 1657186883512,
+    "stop" : 1657186884895,
+    "duration" : 1383
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b6ceaf34e4384df2",
+  "name" : "createOrderWithDifferentColorsTest[0]",
+  "time" : {
+    "start" : 1657186865258,
+    "stop" : 1657186866050,
+    "duration" : 792
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "de2948268c2bb349",
+  "name" : "getOrdersListTest",
+  "time" : {
+    "start" : 1657187019319,
+    "stop" : 1657187022130,
+    "duration" : 2811
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "901444e74b86f4bf",
+  "name" : "checkCreateOrderResponseContentsTrackTest[4]",
+  "time" : {
+    "start" : 1657186872909,
+    "stop" : 1657186873788,
+    "duration" : 879
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fef527943ea3a5e5",
+  "name" : "createCourierWithoutFirstNameTest",
+  "time" : {
+    "start" : 1657186864056,
+    "stop" : 1657186865202,
+    "duration" : 1146
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "14fb479922273be7",
+  "name" : "acceptOrderWithWrongCourierIdTest",
+  "time" : {
+    "start" : 1657186850276,
+    "stop" : 1657186853500,
+    "duration" : 3224
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "77d8d8f65ee46b3e",
+  "name" : "deleteCourierWithWrongIdFailsTest",
+  "time" : {
+    "start" : 1657186875419,
+    "stop" : 1657186876937,
+    "duration" : 1518
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "89bb4de1b3bff1c3",
+  "name" : "deleteCourierCorrectTest",
+  "time" : {
+    "start" : 1657186880015,
+    "stop" : 1657186881096,
+    "duration" : 1081
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "af26fdc984f260ad",
+  "name" : "checkCreateOrderResponseContentsTrackTest[2]",
+  "time" : {
+    "start" : 1657186869487,
+    "stop" : 1657186870353,
+    "duration" : 866
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

@@ -1,0 +1,577 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "acceptOrderWithWrongOrderIdTest",
+    "uid" : "10b079de4e319d6e",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186827487,
+      "stop" : 1657186840390,
+      "duration" : 12903
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "acceptOrderWithoutOrderIdTest",
+    "uid" : "d725afd78038ffba",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186840588,
+      "stop" : 1657186844102,
+      "duration" : 3514
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkOrderSuccessReturnsOkTest",
+    "uid" : "32815c05f8e413bf",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186844116,
+      "stop" : 1657186847152,
+      "duration" : 3036
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "acceptOrderWithoutCourierIdTest",
+    "uid" : "8ef7044ea9b51039",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186847158,
+      "stop" : 1657186850274,
+      "duration" : 3116
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "acceptOrderWithWrongCourierIdTest",
+    "uid" : "14fb479922273be7",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186850276,
+      "stop" : 1657186853500,
+      "duration" : 3224
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createTwoEqualCouriersFailsTest",
+    "uid" : "e57e68516f530c7c",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186853516,
+      "stop" : 1657186855300,
+      "duration" : 1784
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createCourierWithEmptyPasswordTest",
+    "uid" : "f27f5f3c82b308f7",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186855303,
+      "stop" : 1657186855708,
+      "duration" : 405
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createCouriersWithSameLoginFailTest",
+    "uid" : "e55040962001c6e5",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186855711,
+      "stop" : 1657186857591,
+      "duration" : 1880
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createCourierWithEmptyFirstnameTest",
+    "uid" : "5a8a14d5046a2002",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186857595,
+      "stop" : 1657186858764,
+      "duration" : 1169
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createCourierWithEmptyLoginTest",
+    "uid" : "39561eb3b91f1f8c",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186858774,
+      "stop" : 1657186859318,
+      "duration" : 544
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createCourierWithoutPasswordTest",
+    "uid" : "e5c790ba50e23a34",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186859321,
+      "stop" : 1657186859700,
+      "duration" : 379
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkCreateCourierSuccessStatusCodeTest",
+    "uid" : "33ecb9a58715f623",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186859702,
+      "stop" : 1657186861109,
+      "duration" : 1407
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createCourierSuccessTest",
+    "uid" : "d1d9b4315f21f03b",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186861113,
+      "stop" : 1657186862349,
+      "duration" : 1236
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createCourierWithoutLoginTest",
+    "uid" : "9b8d4540abd3fec1",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186862357,
+      "stop" : 1657186862851,
+      "duration" : 494
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkCourierSuccessReturnsOkTest",
+    "uid" : "e954647b0a363c9",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186862854,
+      "stop" : 1657186864052,
+      "duration" : 1198
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createCourierWithoutFirstNameTest",
+    "uid" : "fef527943ea3a5e5",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186864056,
+      "stop" : 1657186865202,
+      "duration" : 1146
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createOrderWithDifferentColorsTest[0]",
+    "uid" : "b6ceaf34e4384df2",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186865258,
+      "stop" : 1657186866050,
+      "duration" : 792
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkCreateOrderResponseContentsTrackTest[0]",
+    "uid" : "b8bcb6d84423e9ca",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186866054,
+      "stop" : 1657186866991,
+      "duration" : 937
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createOrderWithDifferentColorsTest[1]",
+    "uid" : "50b734aa5c01142c",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186867000,
+      "stop" : 1657186868042,
+      "duration" : 1042
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkCreateOrderResponseContentsTrackTest[1]",
+    "uid" : "4b7918508eea8c2c",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186868049,
+      "stop" : 1657186868744,
+      "duration" : 695
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createOrderWithDifferentColorsTest[2]",
+    "uid" : "fae2ca4b74040caf",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186868747,
+      "stop" : 1657186869479,
+      "duration" : 732
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkCreateOrderResponseContentsTrackTest[2]",
+    "uid" : "af26fdc984f260ad",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186869487,
+      "stop" : 1657186870353,
+      "duration" : 866
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createOrderWithDifferentColorsTest[3]",
+    "uid" : "a4cf056b0f38742",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186870361,
+      "stop" : 1657186871164,
+      "duration" : 803
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkCreateOrderResponseContentsTrackTest[3]",
+    "uid" : "534094dd7a2fd103",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186871170,
+      "stop" : 1657186871977,
+      "duration" : 807
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createOrderWithDifferentColorsTest[4]",
+    "uid" : "fd3070c8235a346b",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186871981,
+      "stop" : 1657186872901,
+      "duration" : 920
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkCreateOrderResponseContentsTrackTest[4]",
+    "uid" : "901444e74b86f4bf",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186872909,
+      "stop" : 1657186873788,
+      "duration" : 879
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "createOrderWithDifferentColorsTest[5]",
+    "uid" : "999bfdfb2b7489",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186873792,
+      "stop" : 1657186874541,
+      "duration" : 749
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkCreateOrderResponseContentsTrackTest[5]",
+    "uid" : "6d6682429129d97c",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186874549,
+      "stop" : 1657186875412,
+      "duration" : 863
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "deleteCourierWithWrongIdFailsTest",
+    "uid" : "77d8d8f65ee46b3e",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186875419,
+      "stop" : 1657186876937,
+      "duration" : 1518
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "deleteCourierWithoutIdFailsTest",
+    "uid" : "ab8501dde4c47c0",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186876944,
+      "stop" : 1657186878446,
+      "duration" : 1502
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "deleteCourierWrongRequestFailsTest",
+    "uid" : "907fdf6fa65a079a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186878449,
+      "stop" : 1657186880004,
+      "duration" : 1555
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "deleteCourierCorrectTest",
+    "uid" : "89bb4de1b3bff1c3",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186880015,
+      "stop" : 1657186881096,
+      "duration" : 1081
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "getOrderByTrackSuccessTest",
+    "uid" : "3e67ccbfa9f31115",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186881104,
+      "stop" : 1657186882244,
+      "duration" : 1140
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "getOrderByTrackWithoutTrackFailsTest",
+    "uid" : "b47ebf0741b9bd3a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186882253,
+      "stop" : 1657186883505,
+      "duration" : 1252
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "getOrderByTrackWithWrongTrackFailsTest",
+    "uid" : "77a236666b279cff",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186883512,
+      "stop" : 1657186884895,
+      "duration" : 1383
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "loginWithoutLoginFailsTest",
+    "uid" : "2d0f5fe71b48984c",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186884904,
+      "stop" : 1657186886404,
+      "duration" : 1500
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "loginCourierSuccessTest",
+    "uid" : "597192aced241db5",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186886408,
+      "stop" : 1657186887773,
+      "duration" : 1365
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "loginWithoutPasswordFailsTest",
+    "uid" : "2e8e75fbe55e06b3",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186887775,
+      "stop" : 1657186949308,
+      "duration" : 61533
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "checkLoginResponseReturnsIdTest",
+    "uid" : "829ecfdd01e17d9b",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186949317,
+      "stop" : 1657186951075,
+      "duration" : 1758
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "loginWithEmptyLoginFailsTest",
+    "uid" : "5a021129d2a47ed0",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186951082,
+      "stop" : 1657186952760,
+      "duration" : 1678
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "loginWithEmptyPasswordFailsTest",
+    "uid" : "10634fa2c961e108",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657186952763,
+      "stop" : 1657187014502,
+      "duration" : 61739
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "loginWithWrongPasswordFailsTest",
+    "uid" : "7506789ee5411a6a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657187014512,
+      "stop" : 1657187017765,
+      "duration" : 3253
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "loginWithWrongLoginFailsTest",
+    "uid" : "b2c09aff312a1b9a",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657187017777,
+      "stop" : 1657187019307,
+      "duration" : 1530
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  }, {
+    "name" : "getOrdersListTest",
+    "uid" : "de2948268c2bb349",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1657187019319,
+      "stop" : 1657187022130,
+      "duration" : 2811
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ ]
+  } ]
+}
