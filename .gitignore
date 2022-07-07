@@ -1,0 +1,5 @@
+# Project exclude paths
+/target/
+/.allure/
+/pom with Allure.xml
+/.idea/
