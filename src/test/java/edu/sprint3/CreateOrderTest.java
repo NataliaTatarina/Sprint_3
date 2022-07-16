@@ -1,6 +1,6 @@
 package edu.sprint3;
 
-import edu.sprint3.pojo.CreateOrder;
+import edu.sprint3.pojo.Order;
 import io.restassured.response.Response;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
@@ -8,7 +8,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import static io.restassured.RestAssured.config;
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.notNullValue;
 
 
@@ -17,27 +19,21 @@ import static org.hamcrest.Matchers.notNullValue;
 public class CreateOrderTest extends AbstractTest {
 
 
-    private int orderTrack;
-    private String[] colorList;
-    private final String colorBlack;
-    private final String colorGrey;
-    private final int expectedResponseStatus;
+   private int orderTrack;
+   private final String[] colorList;
+   public CreateOrderTest(String[] colorList) {
+       this.colorList = colorList;
+   }
 
-    public CreateOrderTest(String colorBlack, String colorGrey, int expectedResponseStatus) {
-        this.colorBlack = colorBlack;
-        this.colorGrey = colorGrey;
-        this.expectedResponseStatus = expectedResponseStatus;
-    }
 
     @Parameterized.Parameters
     public static Object[][] getColorsData() {
         return new Object[][]{
-                {"BLACK", null, 201},
-                {null, "GREY", 201},
-                {null, null, 201},
-                {"BLACK", "GREY", 201},
-                {"GREY", "BLACK", 201},
-                {"RED", "GREEN", 201}
+                {new String[] { "RED", "GREEN" }},
+                {new String[] { "BLACK", null }},
+                {new String[]{ null, "GREY" }},
+                {new String[] { null, null }},
+                {new String[] { "BLACK", "GREY" }}
         };
     }
 
@@ -45,50 +41,35 @@ public class CreateOrderTest extends AbstractTest {
     public void deleteOrder() {
         // Удалаяем заказ
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .queryParam("track", orderTrack)
                 .put("/api/v1/orders/cancel")
-                .then().statusCode(200);
+                .then().statusCode(SC_OK);
     }
 
     // Можно указать один из цветов — BLACK или GREY
     // Можно указать оба цвета
     // Можно совсем не указывать цвет
-    @Test
-    public void createOrderWithDifferentColorsTest() {
-        colorList = new String[]{colorBlack};
-        CreateOrder createOrder = new CreateOrder(firstName, lastName, address, metroStation, phone,
-                rentTime, deliveryDate, comment, colorList);
-        Response response = given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
-                .and()
-                .body(createOrder)
-                .when()
-                .post("/api/v1/orders");
-        response.then().statusCode(expectedResponseStatus);
-        // Определяем трэк для того, чтобы потом удалить заказ по завершении теста
-        orderTrack = response.then().extract().body().path("track");
-    }
-
-
     // Тело ответа содержит track
     @Test
-    public void checkCreateOrderResponseContentsTrackTest() {
-        CreateOrder createOrder = new CreateOrder(firstName, lastName, address, metroStation, phone,
-                rentTime, deliveryDate, comment, null);
+    public void createOrderWithDifferentColorsTest() {
+        Order orderExp = new Order( null, null,   firstName,
+                 lastName,   address, Integer.toString(metroStation),
+                 phone,   rentTime,  deliveryDate,
+         null, null, colorList,  comment,
+         null,  null,  null,
+         null,  null, null);
         Response response = given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
-                .body(createOrder)
+                .body(orderExp)
                 .when()
                 .post("/api/v1/orders");
-        MatcherAssert.assertThat(response.then().extract().body().path("track"), notNullValue());
+        response.then().statusCode(SC_CREATED);
         // Определяем трэк для того, чтобы потом удалить заказ по завершении теста
         orderTrack = response.then().extract().body().path("track");
+        // Проверяем, что тело ответа содержит track
+        MatcherAssert.assertThat(response.then().extract().body().path("track"), notNullValue());
     }
-
 }

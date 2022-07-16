@@ -1,6 +1,6 @@
 package edu.sprint3;
 
-import edu.sprint3.pojo.CreateOrder;
+import edu.sprint3.pojo.Order;
 import edu.sprint3.pojo.SingleOrder;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
@@ -18,38 +19,25 @@ public class AcceptOrderTest extends AbstractTest {
     private int orderTrack;
 
     boolean orderCanBeDeleted;
-    CreateOrder createOrder = new CreateOrder(firstName, lastName, address, metroStation, phone,
-            rentTime, deliveryDate, comment, color);
-
+    Order order = new Order( null, null,  firstName,
+            lastName,   address, Integer.toString(metroStation),
+            phone,   rentTime,  deliveryDate,
+            null, null, color,  comment,
+            null,  null,  null,
+            null,  null, null);
     @Before
     public void setUp() {
         orderCanBeDeleted = true;
         //Создать курьера
-        given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
-                .and()
-                .body(courier)
-                .when()
-                .post("/api/v1/courier")
-                .then()
-                .statusCode(201);
+        createCourierProc();
         // Определить id курьера
-        courierIdFromResponse = given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
-                .and()
-                .body(courier)
-                .when()
-                .post("/api/v1/courier/login")
-                .then().extract().body().path("id");
+        courierIdFromResponse = getCourierIdProc();
         System.out.println(courierIdFromResponse);
         // Создать заказ и определить его номер - track
         orderTrack = given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
-                .body(createOrder)
+                .body(order)
                 .when()
                 .post("/api/v1/orders")
                 .then().extract().body().path("track");
@@ -57,7 +45,7 @@ public class AcceptOrderTest extends AbstractTest {
         // Узнать id заказа по его track
         SingleOrder singleOrder =
                 given()
-                        .spec(baseUri)
+                        .spec(requestSpec)
                         .header("Content-type", "application/json")
                         .when()
                         .queryParam("t", orderTrack)
@@ -66,37 +54,30 @@ public class AcceptOrderTest extends AbstractTest {
                         .as(SingleOrder.class);
         MatcherAssert.assertThat(singleOrder, notNullValue());
         orderId = singleOrder.getOrder().getId();
-        System.out.println(orderId);
+        System.out.println("orderId"+orderId);
     }
 
     @After
-    public void deleteCourier() {
+    public void deleteCourierAndOrder() {
         // Принятый заказ нельзя удалить
         if (orderCanBeDeleted) {
             given()
-                    .spec(baseUri)
-                    .header("Content-type", "application/json")
+                    .spec(requestSpec)
                     .when()
                     .queryParam("track", orderTrack)
                     .put("/api/v1/orders/cancel")
-                    .then().statusCode(200);
+                    .then().statusCode(SC_OK);
         } else {
             given()
-                    .spec(baseUri)
-                    .header("Content-type", "application/json")
+                    .spec(requestSpec)
                     .when()
                     .queryParam("track", orderTrack)
                     .put("/api/v1/orders/cancel")
-                    .then().statusCode(409);
+                    .then().statusCode(SC_CONFLICT);
             System.out.println(" Принятый заказ не удалить");
         }
         // Удаляем курьера
-        given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
-                .when()
-                .delete("/api/v1/courier/" + courierIdFromResponse)
-                .then().statusCode(200);
+        deleteCourierProc(courierIdFromResponse);
     }
 
     // Успешный запрос возвращает ok: true
@@ -104,8 +85,7 @@ public class AcceptOrderTest extends AbstractTest {
     public void checkOrderSuccessReturnsOkTest() {
         MatcherAssert.assertThat(
                 given()
-                        .spec(baseUri)
-                        .header("Content-type", "application/json")
+                        .spec(requestSpec)
                         .when()
                         .queryParam("courierId", courierIdFromResponse)
                         .put("/api/v1/orders/accept/" + orderId)
@@ -119,21 +99,19 @@ public class AcceptOrderTest extends AbstractTest {
     @Test
     public void acceptOrderWithoutCourierIdTest() {
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .put("/api/v1/orders/accept/" + orderId)
                 .then().assertThat().body("message", equalTo("Недостаточно данных для поиска"))
                 .and()
-                .statusCode(400);
+                .statusCode(SC_BAD_REQUEST);
     }
 
     // Если передать неверный id курьера, запрос вернёт ошибку
     @Test
     public void acceptOrderWithWrongCourierIdTest() {
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .queryParam("courierId", 0)
                 .put("/api/v1/orders/accept/" + orderId)
@@ -147,27 +125,25 @@ public class AcceptOrderTest extends AbstractTest {
     @Test
     public void acceptOrderWithoutOrderIdTest() {
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .queryParam("courierId", courierIdFromResponse)
                 .put("/api/v1/orders/accept/")
                 .then().assertThat().body("message", equalTo("Not Found."))
                 .and()
-                .statusCode(404);
+                .statusCode(SC_NOT_FOUND);
     }
 
     // Если передать неверный номер заказа, запрос вернёт ошибку
     @Test
     public void acceptOrderWithWrongOrderIdTest() {
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .queryParam("courierId", courierIdFromResponse)
                 .put("/api/v1/orders/accept/" + 0)
                 .then().assertThat().body("message", equalTo("Заказа с таким id не существует"))
                 .and()
-                .statusCode(404);
+                .statusCode(SC_NOT_FOUND);
     }
 }

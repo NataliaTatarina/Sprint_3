@@ -1,19 +1,8 @@
 {
   "total" : 7,
   "items" : [ {
-    "uid" : "51011514d8c1c3e3bec921a2c8a1c1a7",
-    "name" : "CreateOrderTest",
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 12,
-      "unknown" : 0,
-      "total" : 12
-    }
-  }, {
-    "uid" : "1dc0e94a33f3efc71cf1fe6720ef6e53",
-    "name" : "CreateCourierTest",
+    "uid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+    "name" : "edu.sprint3.CreateCourierTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -23,8 +12,8 @@
       "total" : 11
     }
   }, {
-    "uid" : "add15fd69964ca7a4cdcaf1c76e70e12",
-    "name" : "LoginCourierTest",
+    "uid" : "956ef911569d9663aaa8581622054133",
+    "name" : "edu.sprint3.LoginCourierTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -34,8 +23,8 @@
       "total" : 8
     }
   }, {
-    "uid" : "61d91c9c3465c79c40714fe4e9d5c626",
-    "name" : "AcceptOrderTest",
+    "uid" : "05d637f168b54477fc6b7be9556cf8fc",
+    "name" : "edu.sprint3.AcceptOrderTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -45,8 +34,19 @@
       "total" : 5
     }
   }, {
-    "uid" : "67cd0e3d7d59decfad9e7349a3df482e",
-    "name" : "DeleteCourierTest",
+    "uid" : "7a07ed00e15958e0c713a85f7a116564",
+    "name" : "edu.sprint3.CreateOrderTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 5,
+      "unknown" : 0,
+      "total" : 5
+    }
+  }, {
+    "uid" : "cfc3996f29a891fe9502e09d707be302",
+    "name" : "edu.sprint3.DeleteCourierTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -56,8 +56,8 @@
       "total" : 4
     }
   }, {
-    "uid" : "bd16acbf8bd2c52df5e483a2f8b46943",
-    "name" : "GetOrderByTrackTest",
+    "uid" : "02764d977c301ca3ae14eceee8239d92",
+    "name" : "edu.sprint3.GetOrderByTrackTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
@@ -67,8 +67,8 @@
       "total" : 3
     }
   }, {
-    "uid" : "3bc98cbd746ce9c2ed58cd84bff7c211",
-    "name" : "OrdersListTest",
+    "uid" : "6490c6a62c0a643bd6bac0873fe821e8",
+    "name" : "edu.sprint3.OrdersListTest",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,

@@ -1,81 +1,78 @@
 package edu.sprint3;
 
-import edu.sprint3.pojo.CreateOrder;
+import edu.sprint3.pojo.Order;
 import edu.sprint3.pojo.SingleOrder;
 import org.hamcrest.MatcherAssert;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class GetOrderByTrackTest extends AbstractTest{
     private int orderTrack;
-    CreateOrder createOrder = new CreateOrder(firstName, lastName, address, metroStation, phone,
-            rentTime, deliveryDate, comment, color);
-    @Before
-    public void setUp() {
-           orderTrack = given()
-                   .spec(baseUri)
-                .header("Content-type", "application/json")
-                 .and()
-                .body(createOrder)
-                .when()
-                .post("/api/v1/orders")
-                .then().extract().body().path("track");
-    }
 
-    @After
-    public void deleteOrder () {
-        given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
-                .when()
-                .queryParam("track", orderTrack)
-                .put("/api/v1/orders/cancel")
-                .then().statusCode(200);
-    }
+    Order order = new Order( null, null,  firstName,
+            lastName,   address, Integer.toString(metroStation),
+            phone,   rentTime,  deliveryDate,
+            null, null, color,  comment,
+            null,  null,  null,
+            null,  null, null);
 
     // Успешный запрос возвращает объект с заказом
     @Test
     public void getOrderByTrackSuccessTest (){
+        orderTrack = given()
+                .spec(requestSpec)
+                .and()
+                .body(order)
+                .when()
+                .post("/api/v1/orders")
+                .then().extract().body().path("track");
+        System.out.println("orderTrack "+orderTrack);
+
         SingleOrder singleOrder =
                 given()
-                        .spec(baseUri)
-                        .header("Content-type", "application/json")
+                        .spec(requestSpec)
                         .when()
                         .queryParam("t", orderTrack)
                         .get("/api/v1/orders/track")
                         .body().as(SingleOrder.class);
         MatcherAssert.assertThat(singleOrder, notNullValue());
+
+        given()
+                .spec(requestSpec)
+                .when()
+                .queryParam("track", orderTrack)
+                .put("/api/v1/orders/cancel")
+                .then().statusCode(SC_OK);
+
     }
 
     // Запрос без номера заказа возвращает ошибку
     @Test
     public void getOrderByTrackWithoutTrackFailsTest() {
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .get("/api/v1/orders/track")
                 .then().assertThat().body("message", equalTo("Недостаточно данных для поиска"))
                 .and()
-                .statusCode(400);
+                .statusCode(SC_BAD_REQUEST);
+
     }
 
     // Запрос с несуществующим заказом возвращает ошибку
     @Test
     public void getOrderByTrackWithWrongTrackFailsTest() {
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .queryParam("t", 0)
                 .get("/api/v1/orders/track")
                 .then().assertThat().body("message", equalTo("Заказ не найден"))
                 .and()
-                .statusCode(404);
+                .statusCode(SC_NOT_FOUND);
     }
 }

@@ -1,173 +1,142 @@
 package edu.sprint3;
 
-import edu.sprint3.pojo.CourierForLogin;
-import edu.sprint3.pojo.CourierForLoginWithoutLogin;
-import edu.sprint3.pojo.CourierForLoginWithoutPassword;
+import edu.sprint3.pojo.Courier;
+import edu.sprint3.pojo.CourierAuthorization;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
 public class LoginCourierTest extends AbstractTest {
 
-    private int courierIdFromResponse;
-
-    @Before
-    public void setUp() {
-        // создаем учетную запись курьера
-        given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
-                .and()
-                .body(courier)
-                .when()
-                .post("/api/v1/courier")
-                .then()
-                .statusCode(201);
-    }
-
-    @After
-    public void deleteCreatedCourier() {
-        // определяем id курьера
-        courierIdFromResponse = given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
-                .and()
-                .body(courierForLogin)
-                .when()
-                .post("/api/v1/courier/login")
-                .then().extract().body().path("id");
-        // удалаяем курьера
-        given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
-                .when()
-                .delete("/api/v1/courier/" + courierIdFromResponse)
-                .then().statusCode(200);
-    }
-
     // Курьер может авторизоваться
     @Test
     public void loginCourierSuccessTest() {
+        createCourierProc();
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
-                .body(courierForLogin)
+                .body(courierAuthorization)
                 .when()
                 .post("/api/v1/courier/login")
-                .then().statusCode(200);
+                .then().statusCode(SC_OK);
+        deleteCourierProc(getCourierIdProc());
     }
 
-    // Для авторизации надо заполнить все обязательнеы поля
+    // Для авторизации надо заполнить все обязательные поля
+    // По очереди передаем NULL
     @Test
     public void loginWithEmptyLoginFailsTest() {
-        CourierForLogin courierForLoginWithEmptyLogin = new CourierForLogin(null, testPassword);
+        CourierAuthorization сourierAuthorizationWithEmptyLogin = new CourierAuthorization(null, testPassword);
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
-                .body(courierForLoginWithEmptyLogin)
+                .body(сourierAuthorizationWithEmptyLogin)
                 .when()
                 .post("/api/v1/courier/login")
                 .then().assertThat().body("message", equalTo("Недостаточно данных для входа"))
                 .and()
-                .statusCode(400);
+                .statusCode(SC_BAD_REQUEST);
     }
 
     @Test
     // Отличие от документации
     public void loginWithEmptyPasswordFailsTest() {
-        CourierForLogin courierForLoginWithEmptyPassword = new CourierForLogin(testLogin, null);
+        CourierAuthorization сourierAuthorizationWithEmptyPassword = new CourierAuthorization(testLogin, null);
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
-                .body(courierForLoginWithEmptyPassword)
+                .body(сourierAuthorizationWithEmptyPassword)
                 .when()
                 .post("/api/v1/courier/login")
                 .then()
-                .statusCode(504);
+                .statusCode(SC_GATEWAY_TIMEOUT);
     }
 
     // Система вернет ошибку, если неправильно указать логин и пароль
     @Test
     public void loginWithWrongPasswordFailsTest() {
-        CourierForLogin courierForLoginWithWrongPassword = new CourierForLogin(testLogin, testPassword + testPassword);
+        CourierAuthorization courierAuthorizationWithWrongPassword = new CourierAuthorization(testLogin, testPassword + testPassword);
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
-                .body(courierForLoginWithWrongPassword)
+                .body(courierAuthorizationWithWrongPassword)
                 .when()
                 .post("/api/v1/courier/login")
                 .then().assertThat().body("message", equalTo("Учетная запись не найдена"))
                 .and()
-                .statusCode(404);
+                .statusCode(SC_NOT_FOUND);
     }
 
     // Если какого-то поля нет, то запрос возвращает ошибку
     @Test
     public void loginWithoutLoginFailsTest() {
-        CourierForLoginWithoutLogin courierForLoginWithoutLogin = new CourierForLoginWithoutLogin(testPassword);
+        Courier courierWithoutLoginAndFirstName = new Courier (null, testPassword, null);
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
-                .body(courierForLoginWithoutLogin)
+                .body(courierWithoutLoginAndFirstName)
                 .when()
                 .post("/api/v1/courier/login")
                 .then().assertThat().body("message", equalTo("Недостаточно данных для входа"))
                 .and()
-                .statusCode(400);
+                .statusCode(SC_BAD_REQUEST);
     }
 
     @Test
     // Отличие от документации
     public void loginWithoutPasswordFailsTest() {
-        CourierForLoginWithoutPassword courierForLoginWithoutPassword = new CourierForLoginWithoutPassword(testLogin);
+        Courier courierWithoutPasswordAndFirstName = new Courier(testLogin, null, null);
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
-                .body(courierForLoginWithoutPassword)
+                .body(courierWithoutPasswordAndFirstName)
                 .when()
                 .post("/api/v1/courier/login")
                 .then()
-                .statusCode(504);
+                .statusCode(SC_GATEWAY_TIMEOUT);
     }
 
     // Если авторизироваться под несуществующим пользователем, запрос возвращает ошибку
     @Test
     public void loginWithWrongLoginFailsTest() {
-        CourierForLogin courierForLoginWithWrongUser = new CourierForLogin(testLogin + testLogin, testPassword);
+        CourierAuthorization courierAuthorizationWithWrongUser = new CourierAuthorization(testLogin + testLogin, testPassword);
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
-                .body(courierForLoginWithWrongUser)
+                .body(courierAuthorizationWithWrongUser)
                 .when()
                 .post("/api/v1/courier/login")
                 .then().assertThat().body("message", equalTo("Учетная запись не найдена"))
                 .and()
-                .statusCode(404);
+                .statusCode(SC_NOT_FOUND);
     }
 
     // Успешный запрос возвращает id
     @Test
     public void checkLoginResponseReturnsIdTest() {
+        createCourierProc();
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
-                .body(courierForLogin)
+                .body(courierAuthorization)
                 .when()
                 .post("/api/v1/courier/login")
                 .then().assertThat().body("id", notNullValue())
                 .and()
-                .statusCode(200);
+                .statusCode(SC_OK);
+        deleteCourierProc(getCourierIdProc());
     }
 }

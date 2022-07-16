@@ -1,157 +1,218 @@
 package edu.sprint3.pojo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 public class Order {
-    private int id;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Integer id;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Integer courierId;
     private String firstName;
     private String lastName;
     private String address;
     private String metroStation;
     private String phone;
-    private int rentTime;
+    private Integer rentTime;
     private String deliveryDate;
-    private int track;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Integer track;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Integer status;
     public String[] color;
     private String comment;
-    private boolean cancelled;
-    private boolean finished;
-    private boolean inDelivery;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean cancelled;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean finished;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Boolean inDelivery;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String courierFirstName;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String createdAt;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String updatedAt;
-    private int status;
 
-    public void setId(int id) {
+    public Order() {
+    }
+
+    public Order(Integer id, Integer courierId, String firstName, String lastName,
+                 String address, String metroStation, String phone,
+                 Integer rentTime, String deliveryDate, Integer track,
+                 Integer status, String[] color, String comment,
+                 Boolean cancelled, Boolean finished, Boolean inDelivery,
+                 String courierFirstName, String createdAt,
+                 String updatedAt) {
         this.id = id;
-    }
-
-    public void setFirstName(String firstName) {
+        this.courierId = courierId;
         this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public void setAddress(String address) {
         this.address = address;
-    }
-
-    public void setMetroStation(String metroStation) {
         this.metroStation = metroStation;
-    }
-
-    public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public void setRentTime(int rentTime) {
         this.rentTime = rentTime;
-    }
-
-    public void setDeliveryDate(String deliveryDate) {
         this.deliveryDate = deliveryDate;
-    }
-
-    public void setTrack(int track) {
         this.track = track;
-    }
-
-    public void setColor(String[] color) {
+        this.status = status;
         this.color = color;
-    }
-
-    public void setComment(String comment) {
         this.comment = comment;
-    }
-
-    public void setCancelled(boolean cancelled) {
         this.cancelled = cancelled;
-    }
-
-    public void setFinished(boolean finished) {
         this.finished = finished;
-    }
-
-    public void setInDelivery(boolean inDelivery) {
         this.inDelivery = inDelivery;
-    }
-
-    public void setCreatedAt(String createdAt) {
+        this.courierFirstName = courierFirstName;
         this.createdAt = createdAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public Integer getId() {
+        return id;
     }
 
-    public int getId() {
-        return id;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getCourierId() {
+        return courierId;
+    }
+
+    public void setCourierId(Integer courierId) {
+        this.courierId = courierId;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getAddress() {
         return address;
     }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getMetroStation() {
         return metroStation;
+    }
+
+    public void setMetroStation(String metroStation) {
+        this.metroStation = metroStation;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public int getRentTime() {
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Integer getRentTime() {
         return rentTime;
+    }
+
+    public void setRentTime(Integer rentTime) {
+        this.rentTime = rentTime;
     }
 
     public String getDeliveryDate() {
         return deliveryDate;
     }
 
-    public int getTrack() {
+    public void setDeliveryDate(String deliveryDate) {
+        this.deliveryDate = deliveryDate;
+    }
+
+    public Integer getTrack() {
         return track;
+    }
+
+    public void setTrack(Integer track) {
+        this.track = track;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String[] getColor() {
         return color;
     }
 
+    public void setColor(String[] color) {
+        this.color = color;
+    }
+
     public String getComment() {
         return comment;
     }
 
-    public boolean isCancelled() {
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Boolean getCancelled() {
         return cancelled;
     }
 
-    public boolean isFinished() {
+    public void setCancelled(Boolean cancelled) {
+        this.cancelled = cancelled;
+    }
+
+    public Boolean getFinished() {
         return finished;
     }
 
-    public boolean isInDelivery() {
+    public void setFinished(Boolean finished) {
+        this.finished = finished;
+    }
+
+    public Boolean getInDelivery() {
         return inDelivery;
+    }
+
+    public void setInDelivery(Boolean inDelivery) {
+        this.inDelivery = inDelivery;
+    }
+
+    public String getCourierFirstName() {
+        return courierFirstName;
+    }
+
+    public void setCourierFirstName(String courierFirstName) {
+        this.courierFirstName = courierFirstName;
     }
 
     public String getCreatedAt() {
         return createdAt;
     }
 
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public int getStatus() {
-        return status;
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

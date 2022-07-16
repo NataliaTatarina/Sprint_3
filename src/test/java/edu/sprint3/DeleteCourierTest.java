@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.CoreMatchers.is;
 
 public class DeleteCourierTest extends AbstractTest{
@@ -14,16 +15,7 @@ public class DeleteCourierTest extends AbstractTest{
 
     @Before
     public void setUp() {
-
-        given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
-                .and()
-                .body(courier)
-                .when()
-                .post("/api/v1/courier")
-                .then()
-                .statusCode(201);
+        createCourierProc();
         courierExists = true;
    }
 
@@ -32,32 +24,18 @@ public class DeleteCourierTest extends AbstractTest{
    {
               if (courierExists)
        {
-           // определяем id курьера
-           int courierIdFromResponse = given()
-                   .spec(baseUri)
-                   .header("Content-type", "application/json")
-                   .and()
-                   .body(courier)
-                   .when()
-                   .post("/api/v1/courier/login")
-                   .then().extract().body().path("id");
-           // удалаяем курьера
-           given()
-                   .spec(baseUri)
-                   .header("Content-type", "application/json")
-                   .when()
-                   .delete("/api/v1/courier/" + courierIdFromResponse)
-                   .then().statusCode(200);
+           // Определяем id курьера и удаляем его
+           deleteCourierProc(getCourierIdProc());
        }
 
    }
+
     // Успешный запрос возвращает ok: true
     @Test
     public void deleteCourierCorrectTest(){
         // определяем id курьера
         int courierIdFromResponse = given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courier)
                 .when()
@@ -66,8 +44,7 @@ public class DeleteCourierTest extends AbstractTest{
         // удалаяем курьера
         MatcherAssert.assertThat(
                 given()
-                        .spec(baseUri)
-                        .header("Content-type", "application/json")
+                        .spec(requestSpec)
                         .when()
                         .delete("/api/v1/courier/" + courierIdFromResponse).
                         then().extract().body().path("ok"),
@@ -81,11 +58,10 @@ public class DeleteCourierTest extends AbstractTest{
     {
         // удалаяем курьера
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .delete("/api/v1/courier/:")
-                .then().statusCode(500);
+                .then().statusCode(SC_INTERNAL_SERVER_ERROR);
     }
 
     // Если отправить запрос без id, вернётся ошибка
@@ -94,11 +70,10 @@ public class DeleteCourierTest extends AbstractTest{
     {
         // удалаяем курьера
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .delete("/api/v1/courier/")
-                .then().statusCode(404);
+                .then().statusCode(SC_NOT_FOUND);
     }
 
     // Если отправить запрос с несуществующим id, вернётся ошибка
@@ -107,11 +82,10 @@ public class DeleteCourierTest extends AbstractTest{
     {
         // удалаяем курьера
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .when()
                 .delete("/api/v1/courier/" + "0")
-                .then().statusCode(404);
+                .then().statusCode(SC_NOT_FOUND);
 
     }
 }

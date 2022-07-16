@@ -1,7 +1,7 @@
 package edu.sprint3.pojo;
 
 public class SingleOrder {
-private  Order order;
+private Order order;
 
     public Order getOrder() {
         return order;

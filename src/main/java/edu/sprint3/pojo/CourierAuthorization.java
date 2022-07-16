@@ -1,14 +1,14 @@
 package edu.sprint3.pojo;
 
-public class CourierForLogin {
+public class CourierAuthorization {
     private String login;
     private String password;
 
-    public CourierForLogin() {
+    public CourierAuthorization() {
 
     }
 
-    public CourierForLogin(String login, String password){
+    public CourierAuthorization(String login, String password){
         this.login = login;
         this.password = password;
     }

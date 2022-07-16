@@ -1,9 +1,6 @@
 package edu.sprint3;
 
 import edu.sprint3.pojo.Courier;
-import edu.sprint3.pojo.CourierForCreateWithoutLogin;
-import edu.sprint3.pojo.CourierForCreateWithoutPassword;
-import edu.sprint3.pojo.CourierForLogin;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
@@ -11,6 +8,7 @@ import org.junit.Test;
 
 
 import static io.restassured.RestAssured.given;
+import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.Matchers.*;
 
@@ -26,36 +24,21 @@ public class CreateCourierTest extends AbstractTest{
     public void deleteCreatedCourier() {
         if ( courierCreated)
         {
-            // определяем id курьера
-           int courierIdFromResponse = given()
-                   .spec(baseUri)
-                    .header("Content-type", "application/json")
-                    .and()
-                    .body(courier)
-                    .when()
-                    .post("/api/v1/courier/login")
-                    .then().extract().body().path("id");
-            // удалаяем курьера
-            given()
-                    .spec(baseUri)
-                    .header("Content-type", "application/json")
-                    .when()
-                    .delete("/api/v1/courier/" + courierIdFromResponse)
-                    .then().statusCode(200);
+            // Определяем id курьера и удалаяем курьера
+            deleteCourierProc(getCourierIdProc());
         }
     }
     // Курьера можно создать
     @Test
     public void createCourierSuccessTest() {
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courier)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(201);
+                .statusCode(SC_CREATED);
         courierCreated = true;
     }
 
@@ -64,23 +47,22 @@ public class CreateCourierTest extends AbstractTest{
     public void createTwoEqualCouriersFailsTest() {
         Courier courierSecond = new Courier(testLogin, testPassword, testFirstName);
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courier)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(201);
+                .statusCode(SC_CREATED);
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
                 .body(courierSecond)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(409)
+                .statusCode(SC_CONFLICT)
                 .and()
                 .body("message", equalTo("Этот логин уже используется. Попробуйте другой."));
         courierCreated = true;
@@ -91,23 +73,22 @@ public class CreateCourierTest extends AbstractTest{
        public void createCouriersWithSameLoginFailTest() {
         Courier courierSecond = new Courier(testLogin, testPassword+testPassword, testFirstName+testFirstName);
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courier)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(201);
+                .statusCode(SC_CREATED);
         given()
-                .spec(baseUri)
+                .spec(requestSpec)
                 .header("Content-type", "application/json")
                 .and()
                 .body(courierSecond)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(409)
+                .statusCode(SC_CONFLICT)
                 .and()
                 .body("message", equalTo("Этот логин уже используется. Попробуйте другой."));
         courierCreated = true;
@@ -117,14 +98,13 @@ public class CreateCourierTest extends AbstractTest{
     @Test
     public void checkCreateCourierSuccessStatusCodeTest() {
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courier)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(201);
+                .statusCode(SC_CREATED);
         courierCreated = true;
     }
 
@@ -133,8 +113,7 @@ public class CreateCourierTest extends AbstractTest{
     public void checkCourierSuccessReturnsOkTest() {
         MatcherAssert.assertThat(
                 given()
-                        .spec(baseUri)
-                        .header("Content-type", "application/json")
+                        .spec(requestSpec)
                         .and()
                         .body(courier)
                         .when()
@@ -149,14 +128,13 @@ public class CreateCourierTest extends AbstractTest{
     public void createCourierWithEmptyLoginTest() {
         Courier courierWithEmptyLogin = new Courier(null, testPassword, testFirstName);
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courierWithEmptyLogin)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .and()
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
     }
@@ -165,14 +143,13 @@ public class CreateCourierTest extends AbstractTest{
     public void createCourierWithEmptyPasswordTest() {
         Courier courierWithEmptyPassword = new Courier(testLogin, null, testFirstName);
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courierWithEmptyPassword)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .and()
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
     }
@@ -181,62 +158,58 @@ public class CreateCourierTest extends AbstractTest{
     public void createCourierWithEmptyFirstnameTest() {
         Courier courierWithEmptyFirstName = new Courier(testLogin, testPassword, null);
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courierWithEmptyFirstName)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(201);
+                .statusCode(SC_CREATED);
         courierCreated = true;
     }
 
     // Если одного поля нет, запрос возвращает ошибку
     @Test
     public void createCourierWithoutLoginTest() {
-        CourierForCreateWithoutLogin courierWithoutLogin = new CourierForCreateWithoutLogin(testPassword, testFirstName);
+        Courier courierWithoutLogin = new Courier(null, testPassword, testFirstName);
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courierWithoutLogin)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .and()
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
     }
 
     @Test
     public void createCourierWithoutPasswordTest() {
-        CourierForCreateWithoutPassword courierWithoutPassword = new CourierForCreateWithoutPassword(testPassword, testFirstName);
+        Courier courierWithoutPassword = new Courier(testLogin, null, testFirstName);
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courierWithoutPassword)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(400)
+                .statusCode(SC_BAD_REQUEST)
                 .and()
                 .body("message", equalTo("Недостаточно данных для создания учетной записи"));
     }
 
     @Test
     public void createCourierWithoutFirstNameTest() {
-        CourierForLogin courierWithoutFirstName = new CourierForLogin(testLogin, testPassword);
+        Courier courierWithoutFirstName = new Courier(testLogin, testPassword, null);
         given()
-                .spec(baseUri)
-                .header("Content-type", "application/json")
+                .spec(requestSpec)
                 .and()
                 .body(courierWithoutFirstName)
                 .when()
                 .post("/api/v1/courier")
                 .then()
-                .statusCode(201);
+                .statusCode(SC_CREATED);
                 courierCreated = true;
      }
 }
