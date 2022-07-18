@@ -1,38 +1,39 @@
 package edu.sprint3;
 
+import edu.client.CourierClient;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.apache.http.HttpStatus.*;
+import static org.apache.http.HttpStatus.SC_INTERNAL_SERVER_ERROR;
+import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 import static org.hamcrest.CoreMatchers.is;
 
-public class DeleteCourierTest extends AbstractTest{
+public class DeleteCourierTest extends AbstractTest {
 
-   private boolean courierExists;
+    private boolean courierExists;
 
     @Before
     public void setUp() {
-        createCourierProc();
+        CourierClient.createCourierProc(requestSpec, courier);
         courierExists = true;
-   }
+    }
 
-   @After
-          public void deleteCreatedCourier ()
-   {
-              if (courierExists)
-       {
-           // Определяем id курьера и удаляем его
-           deleteCourierProc(getCourierIdProc());
-       }
+    @After
+    public void deleteCreatedCourier() {
+        if (courierExists) {
+            // Определяем id курьера и удаляем его
+            CourierClient.deleteCourierProc(requestSpec,
+                    CourierClient.getCourierIdProc(requestSpec, courier));
+        }
 
-   }
+    }
 
     // Успешный запрос возвращает ok: true
     @Test
-    public void deleteCourierCorrectTest(){
+    public void deleteCourierCorrectTest() {
         // определяем id курьера
         int courierIdFromResponse = given()
                 .spec(requestSpec)
@@ -49,13 +50,12 @@ public class DeleteCourierTest extends AbstractTest{
                         .delete("/api/v1/courier/" + courierIdFromResponse).
                         then().extract().body().path("ok"),
                 is(true));
-                courierExists = false;
-           }
+        courierExists = false;
+    }
 
     // Неуспешный запрос возвращает соответствующую ошибку
     @Test
-    public void deleteCourierWrongRequestFailsTest()
-    {
+    public void deleteCourierWrongRequestFailsTest() {
         // удалаяем курьера
         given()
                 .spec(requestSpec)
@@ -66,8 +66,7 @@ public class DeleteCourierTest extends AbstractTest{
 
     // Если отправить запрос без id, вернётся ошибка
     @Test
-    public void deleteCourierWithoutIdFailsTest()
-    {
+    public void deleteCourierWithoutIdFailsTest() {
         // удалаяем курьера
         given()
                 .spec(requestSpec)
@@ -78,8 +77,7 @@ public class DeleteCourierTest extends AbstractTest{
 
     // Если отправить запрос с несуществующим id, вернётся ошибка
     @Test
-    public void deleteCourierWithWrongIdFailsTest()
-    {
+    public void deleteCourierWithWrongIdFailsTest() {
         // удалаяем курьера
         given()
                 .spec(requestSpec)

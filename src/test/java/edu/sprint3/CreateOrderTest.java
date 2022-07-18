@@ -8,9 +8,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static io.restassured.RestAssured.config;
 import static io.restassured.RestAssured.given;
-import static org.apache.http.HttpStatus.*;
+import static org.apache.http.HttpStatus.SC_CREATED;
+import static org.apache.http.HttpStatus.SC_OK;
 import static org.hamcrest.Matchers.notNullValue;
 
 
@@ -19,21 +19,22 @@ import static org.hamcrest.Matchers.notNullValue;
 public class CreateOrderTest extends AbstractTest {
 
 
-   private int orderTrack;
-   private final String[] colorList;
-   public CreateOrderTest(String[] colorList) {
-       this.colorList = colorList;
-   }
+    private int orderTrack;
+    private final String[] colorList;
+
+    public CreateOrderTest(String[] colorList) {
+        this.colorList = colorList;
+    }
 
 
     @Parameterized.Parameters
     public static Object[][] getColorsData() {
         return new Object[][]{
-                {new String[] { "RED", "GREEN" }},
-                {new String[] { "BLACK", null }},
-                {new String[]{ null, "GREY" }},
-                {new String[] { null, null }},
-                {new String[] { "BLACK", "GREY" }}
+                {new String[]{"RED", "GREEN"}},
+                {new String[]{"BLACK", null}},
+                {new String[]{null, "GREY"}},
+                {new String[]{null, null}},
+                {new String[]{"BLACK", "GREY"}}
         };
     }
 
@@ -54,12 +55,16 @@ public class CreateOrderTest extends AbstractTest {
     // Тело ответа содержит track
     @Test
     public void createOrderWithDifferentColorsTest() {
-        Order orderExp = new Order( null, null,   firstName,
-                 lastName,   address, Integer.toString(metroStation),
-                 phone,   rentTime,  deliveryDate,
-         null, null, colorList,  comment,
-         null,  null,  null,
-         null,  null, null);
+        Order orderExp = new Order()
+                .setFirstName(firstName)
+                .setLastName(lastName)
+                .setAddress(address)
+                .setMetroStation(Integer.toString(metroStation))
+                .setPhone(phone)
+                .setRentTime(rentTime)
+                .setDeliveryDate(deliveryDate)
+                .setColor(colorList)
+                .setComment(comment);
         Response response = given()
                 .spec(requestSpec)
                 .and()

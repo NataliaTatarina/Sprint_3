@@ -3,26 +3,30 @@ package edu.sprint3;
 import edu.sprint3.pojo.Order;
 import edu.sprint3.pojo.SingleOrder;
 import org.hamcrest.MatcherAssert;
-import org.junit.*;
+import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.notNullValue;
 
-public class GetOrderByTrackTest extends AbstractTest{
+public class GetOrderByTrackTest extends AbstractTest {
     private int orderTrack;
 
-    Order order = new Order( null, null,  firstName,
-            lastName,   address, Integer.toString(metroStation),
-            phone,   rentTime,  deliveryDate,
-            null, null, color,  comment,
-            null,  null,  null,
-            null,  null, null);
+    Order order = new Order()
+            .setFirstName(firstName)
+            .setLastName(lastName)
+            .setAddress(address)
+            .setMetroStation(Integer.toString(metroStation))
+            .setPhone(phone)
+            .setRentTime(rentTime)
+            .setDeliveryDate(deliveryDate)
+            .setColor(color)
+            .setComment(comment);
 
     // Успешный запрос возвращает объект с заказом
     @Test
-    public void getOrderByTrackSuccessTest (){
+    public void getOrderByTrackSuccessTest() {
         orderTrack = given()
                 .spec(requestSpec)
                 .and()
@@ -30,7 +34,7 @@ public class GetOrderByTrackTest extends AbstractTest{
                 .when()
                 .post("/api/v1/orders")
                 .then().extract().body().path("track");
-        System.out.println("orderTrack "+orderTrack);
+        System.out.println("orderTrack " + orderTrack);
 
         SingleOrder singleOrder =
                 given()

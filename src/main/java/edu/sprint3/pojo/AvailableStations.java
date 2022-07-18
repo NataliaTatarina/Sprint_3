@@ -4,7 +4,7 @@ public class AvailableStations {
     private String name;
 
     private String number;
-    private  String color;
+    private String color;
 
     public String getName() {
         return name;
@@ -29,8 +29,6 @@ public class AvailableStations {
     public void setColor(String color) {
         this.color = color;
     }
-
-
 
 
 }

@@ -8,7 +8,7 @@ public class CourierAuthorization {
 
     }
 
-    public CourierAuthorization(String login, String password){
+    public CourierAuthorization(String login, String password) {
         this.login = login;
         this.password = password;
     }

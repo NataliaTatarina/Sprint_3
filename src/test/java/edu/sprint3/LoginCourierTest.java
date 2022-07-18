@@ -1,9 +1,8 @@
 package edu.sprint3;
 
+import edu.client.CourierClient;
 import edu.sprint3.pojo.Courier;
 import edu.sprint3.pojo.CourierAuthorization;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
@@ -16,7 +15,7 @@ public class LoginCourierTest extends AbstractTest {
     // Курьер может авторизоваться
     @Test
     public void loginCourierSuccessTest() {
-        createCourierProc();
+        CourierClient.createCourierProc(requestSpec, courier);
         given()
                 .spec(requestSpec)
                 .header("Content-type", "application/json")
@@ -25,7 +24,7 @@ public class LoginCourierTest extends AbstractTest {
                 .when()
                 .post("/api/v1/courier/login")
                 .then().statusCode(SC_OK);
-        deleteCourierProc(getCourierIdProc());
+        CourierClient.deleteCourierProc(requestSpec, CourierClient.getCourierIdProc(requestSpec, courier));
     }
 
     // Для авторизации надо заполнить все обязательные поля
@@ -79,7 +78,7 @@ public class LoginCourierTest extends AbstractTest {
     // Если какого-то поля нет, то запрос возвращает ошибку
     @Test
     public void loginWithoutLoginFailsTest() {
-        Courier courierWithoutLoginAndFirstName = new Courier (null, testPassword, null);
+        Courier courierWithoutLoginAndFirstName = new Courier(null, testPassword, null);
         given()
                 .spec(requestSpec)
                 .header("Content-type", "application/json")
@@ -126,7 +125,7 @@ public class LoginCourierTest extends AbstractTest {
     // Успешный запрос возвращает id
     @Test
     public void checkLoginResponseReturnsIdTest() {
-        createCourierProc();
+        CourierClient.createCourierProc(requestSpec, courier);
         given()
                 .spec(requestSpec)
                 .header("Content-type", "application/json")
@@ -137,6 +136,6 @@ public class LoginCourierTest extends AbstractTest {
                 .then().assertThat().body("id", notNullValue())
                 .and()
                 .statusCode(SC_OK);
-        deleteCourierProc(getCourierIdProc());
+        CourierClient.deleteCourierProc(requestSpec, CourierClient.getCourierIdProc(requestSpec, courier));
     }
 }

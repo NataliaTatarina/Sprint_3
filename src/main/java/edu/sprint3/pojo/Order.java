@@ -68,151 +68,170 @@ public class Order {
         return id;
     }
 
-    public void setId(Integer id) {
+    public Order setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public Integer getCourierId() {
         return courierId;
     }
 
-    public void setCourierId(Integer courierId) {
+    public Order setCourierId(Integer courierId) {
         this.courierId = courierId;
+        return this;
     }
 
     public String getFirstName() {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public Order setFirstName(String firstName) {
         this.firstName = firstName;
+        return this;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public Order setLastName(String lastName) {
         this.lastName = lastName;
+        return this;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public Order setAddress(String address) {
         this.address = address;
+        return this;
     }
 
     public String getMetroStation() {
         return metroStation;
     }
 
-    public void setMetroStation(String metroStation) {
+    public Order setMetroStation(String metroStation) {
         this.metroStation = metroStation;
+        return this;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public Order setPhone(String phone) {
         this.phone = phone;
+        return this;
     }
 
     public Integer getRentTime() {
         return rentTime;
     }
 
-    public void setRentTime(Integer rentTime) {
+    public Order setRentTime(Integer rentTime) {
         this.rentTime = rentTime;
+        return this;
     }
 
     public String getDeliveryDate() {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(String deliveryDate) {
+    public Order setDeliveryDate(String deliveryDate) {
         this.deliveryDate = deliveryDate;
+        return this;
     }
 
     public Integer getTrack() {
         return track;
     }
 
-    public void setTrack(Integer track) {
+    public Order setTrack(Integer track) {
         this.track = track;
+        return this;
     }
 
     public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public Order setStatus(Integer status) {
         this.status = status;
+        return this;
     }
 
     public String[] getColor() {
         return color;
     }
 
-    public void setColor(String[] color) {
+    public Order setColor(String[] color) {
         this.color = color;
+        return this;
     }
 
     public String getComment() {
         return comment;
     }
 
-    public void setComment(String comment) {
+    public Order setComment(String comment) {
         this.comment = comment;
+        return this;
     }
 
     public Boolean getCancelled() {
         return cancelled;
     }
 
-    public void setCancelled(Boolean cancelled) {
+    public Order setCancelled(Boolean cancelled) {
         this.cancelled = cancelled;
+        return this;
     }
 
     public Boolean getFinished() {
         return finished;
     }
 
-    public void setFinished(Boolean finished) {
+    public Order setFinished(Boolean finished) {
         this.finished = finished;
+        return this;
     }
 
     public Boolean getInDelivery() {
         return inDelivery;
     }
 
-    public void setInDelivery(Boolean inDelivery) {
+    public Order setInDelivery(Boolean inDelivery) {
         this.inDelivery = inDelivery;
+        return this;
     }
 
     public String getCourierFirstName() {
         return courierFirstName;
     }
 
-    public void setCourierFirstName(String courierFirstName) {
+    public Order setCourierFirstName(String courierFirstName) {
         this.courierFirstName = courierFirstName;
+        return this;
     }
 
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public Order setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
+        return this;
     }
 
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(String updatedAt) {
+    public Order setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+        return this;
     }
 }

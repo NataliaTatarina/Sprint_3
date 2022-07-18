@@ -1,5 +1,6 @@
 package edu.sprint3;
 
+import edu.client.CourierClient;
 import edu.sprint3.pojo.Order;
 import edu.sprint3.pojo.SingleOrder;
 import org.hamcrest.MatcherAssert;
@@ -18,21 +19,27 @@ public class AcceptOrderTest extends AbstractTest {
     private int orderId;
     private int orderTrack;
 
+    private CourierClient courierClient;
+
     boolean orderCanBeDeleted;
-    Order order = new Order( null, null,  firstName,
-            lastName,   address, Integer.toString(metroStation),
-            phone,   rentTime,  deliveryDate,
-            null, null, color,  comment,
-            null,  null,  null,
-            null,  null, null);
+    Order order = new Order()
+            .setFirstName(firstName)
+            .setLastName(lastName)
+            .setAddress(address)
+            .setMetroStation(Integer.toString(metroStation))
+            .setPhone(phone)
+            .setRentTime(rentTime)
+            .setDeliveryDate(deliveryDate)
+            .setColor(color)
+            .setComment(comment);
+
     @Before
     public void setUp() {
         orderCanBeDeleted = true;
         //Создать курьера
-        createCourierProc();
+        CourierClient.createCourierProc(requestSpec, courier);
         // Определить id курьера
-        courierIdFromResponse = getCourierIdProc();
-        System.out.println(courierIdFromResponse);
+        courierIdFromResponse = CourierClient.getCourierIdProc(requestSpecWithResponseLog, courier);
         // Создать заказ и определить его номер - track
         orderTrack = given()
                 .spec(requestSpec)
@@ -41,7 +48,6 @@ public class AcceptOrderTest extends AbstractTest {
                 .when()
                 .post("/api/v1/orders")
                 .then().extract().body().path("track");
-        System.out.println(orderTrack);
         // Узнать id заказа по его track
         SingleOrder singleOrder =
                 given()
@@ -54,7 +60,6 @@ public class AcceptOrderTest extends AbstractTest {
                         .as(SingleOrder.class);
         MatcherAssert.assertThat(singleOrder, notNullValue());
         orderId = singleOrder.getOrder().getId();
-        System.out.println("orderId"+orderId);
     }
 
     @After
@@ -74,10 +79,9 @@ public class AcceptOrderTest extends AbstractTest {
                     .queryParam("track", orderTrack)
                     .put("/api/v1/orders/cancel")
                     .then().statusCode(SC_CONFLICT);
-            System.out.println(" Принятый заказ не удалить");
         }
         // Удаляем курьера
-        deleteCourierProc(courierIdFromResponse);
+        CourierClient.deleteCourierProc(requestSpec, courierIdFromResponse);
     }
 
     // Успешный запрос возвращает ok: true
@@ -117,7 +121,7 @@ public class AcceptOrderTest extends AbstractTest {
                 .put("/api/v1/orders/accept/" + orderId)
                 .then().assertThat().body("message", equalTo("Курьера с таким id не существует"))
                 .and()
-                .statusCode(404);
+                .statusCode(SC_NOT_FOUND);
     }
 
     // Если не передать номер заказа, запрос вернёт ошибку

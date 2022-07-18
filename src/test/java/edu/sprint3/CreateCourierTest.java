@@ -1,33 +1,33 @@
 package edu.sprint3;
 
+import edu.client.CourierClient;
 import edu.sprint3.pojo.Courier;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-
 import static io.restassured.RestAssured.given;
 import static org.apache.http.HttpStatus.*;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.equalTo;
 
-public class CreateCourierTest extends AbstractTest{
+public class CreateCourierTest extends AbstractTest {
     private boolean courierCreated;
 
     @Before
     public void setUp() {
-         courierCreated = false;
+        courierCreated = false;
     }
 
     @After
     public void deleteCreatedCourier() {
-        if ( courierCreated)
-        {
+        if (courierCreated) {
             // Определяем id курьера и удалаяем курьера
-            deleteCourierProc(getCourierIdProc());
+            CourierClient.deleteCourierProc(requestSpec, CourierClient.getCourierIdProc(requestSpec, courier));
         }
     }
+
     // Курьера можно создать
     @Test
     public void createCourierSuccessTest() {
@@ -70,8 +70,8 @@ public class CreateCourierTest extends AbstractTest{
 
     // Если создать пользователя с логином, который уже есть, возвращается ошибка
     @Test
-       public void createCouriersWithSameLoginFailTest() {
-        Courier courierSecond = new Courier(testLogin, testPassword+testPassword, testFirstName+testFirstName);
+    public void createCouriersWithSameLoginFailTest() {
+        Courier courierSecond = new Courier(testLogin, testPassword + testPassword, testFirstName + testFirstName);
         given()
                 .spec(requestSpec)
                 .and()
@@ -210,6 +210,6 @@ public class CreateCourierTest extends AbstractTest{
                 .post("/api/v1/courier")
                 .then()
                 .statusCode(SC_CREATED);
-                courierCreated = true;
-     }
+        courierCreated = true;
+    }
 }

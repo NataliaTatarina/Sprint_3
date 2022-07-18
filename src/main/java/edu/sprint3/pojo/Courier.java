@@ -1,4 +1,5 @@
 package edu.sprint3.pojo;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 public class Courier {
@@ -13,7 +14,7 @@ public class Courier {
 
     }
 
-    public Courier(String login, String password, String firstName){
+    public Courier(String login, String password, String firstName) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
