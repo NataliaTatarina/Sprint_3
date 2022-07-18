@@ -1,0 +1,514 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "edu.sprint3.AcceptOrderTest",
+    "children" : [ {
+      "name" : "acceptOrderWithWrongOrderIdTest",
+      "uid" : "49927b13ef382db4",
+      "parentUid" : "05d637f168b54477fc6b7be9556cf8fc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049075010,
+        "stop" : 1658049086449,
+        "duration" : 11439
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "acceptOrderWithoutOrderIdTest",
+      "uid" : "da7a9dfaeef018e3",
+      "parentUid" : "05d637f168b54477fc6b7be9556cf8fc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049086648,
+        "stop" : 1658049089891,
+        "duration" : 3243
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "checkOrderSuccessReturnsOkTest",
+      "uid" : "3034c31dd50bf78e",
+      "parentUid" : "05d637f168b54477fc6b7be9556cf8fc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049089896,
+        "stop" : 1658049093228,
+        "duration" : 3332
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "acceptOrderWithoutCourierIdTest",
+      "uid" : "999948f5995cd7a7",
+      "parentUid" : "05d637f168b54477fc6b7be9556cf8fc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049093237,
+        "stop" : 1658049096428,
+        "duration" : 3191
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "acceptOrderWithWrongCourierIdTest",
+      "uid" : "113989536935af6b",
+      "parentUid" : "05d637f168b54477fc6b7be9556cf8fc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049096434,
+        "stop" : 1658049099332,
+        "duration" : 2898
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "05d637f168b54477fc6b7be9556cf8fc"
+  }, {
+    "name" : "edu.sprint3.CreateCourierTest",
+    "children" : [ {
+      "name" : "createTwoEqualCouriersFailsTest",
+      "uid" : "b8944afa85d63b8d",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049099340,
+        "stop" : 1658049100915,
+        "duration" : 1575
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createCourierWithEmptyPasswordTest",
+      "uid" : "431d7b902f5d6ddd",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049100921,
+        "stop" : 1658049101310,
+        "duration" : 389
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createCouriersWithSameLoginFailTest",
+      "uid" : "f26fe2dda1479a6a",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049101314,
+        "stop" : 1658049102946,
+        "duration" : 1632
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createCourierWithEmptyFirstnameTest",
+      "uid" : "5e104691d4f5d73d",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049102949,
+        "stop" : 1658049104113,
+        "duration" : 1164
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createCourierWithEmptyLoginTest",
+      "uid" : "e7c546d23e514171",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049104118,
+        "stop" : 1658049104539,
+        "duration" : 421
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createCourierWithoutPasswordTest",
+      "uid" : "26f78f4842538fd5",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049104544,
+        "stop" : 1658049105025,
+        "duration" : 481
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "checkCreateCourierSuccessStatusCodeTest",
+      "uid" : "de8855a57d34252f",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049105036,
+        "stop" : 1658049106338,
+        "duration" : 1302
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createCourierSuccessTest",
+      "uid" : "6ecc7ab50504d961",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049106340,
+        "stop" : 1658049107603,
+        "duration" : 1263
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createCourierWithoutLoginTest",
+      "uid" : "70be19d97d752dc9",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049107607,
+        "stop" : 1658049108148,
+        "duration" : 541
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "checkCourierSuccessReturnsOkTest",
+      "uid" : "e3e29b2ff6530428",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049108153,
+        "stop" : 1658049109535,
+        "duration" : 1382
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createCourierWithoutFirstNameTest",
+      "uid" : "34b2810a19b71ccd",
+      "parentUid" : "7af4a19b2d7deccaa9cbb1218cacdb67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049109539,
+        "stop" : 1658049111012,
+        "duration" : 1473
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "7af4a19b2d7deccaa9cbb1218cacdb67"
+  }, {
+    "name" : "edu.sprint3.CreateOrderTest",
+    "children" : [ {
+      "name" : "createOrderWithDifferentColorsTest[0]",
+      "uid" : "8ded55fcfa469ad5",
+      "parentUid" : "7a07ed00e15958e0c713a85f7a116564",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049111065,
+        "stop" : 1658049112108,
+        "duration" : 1043
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createOrderWithDifferentColorsTest[1]",
+      "uid" : "60533154edd7502f",
+      "parentUid" : "7a07ed00e15958e0c713a85f7a116564",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049112110,
+        "stop" : 1658049114878,
+        "duration" : 2768
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createOrderWithDifferentColorsTest[2]",
+      "uid" : "e0863ea9767ef90d",
+      "parentUid" : "7a07ed00e15958e0c713a85f7a116564",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049114882,
+        "stop" : 1658049118787,
+        "duration" : 3905
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createOrderWithDifferentColorsTest[3]",
+      "uid" : "ba44c1c312a6c4bc",
+      "parentUid" : "7a07ed00e15958e0c713a85f7a116564",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049118792,
+        "stop" : 1658049119753,
+        "duration" : 961
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "createOrderWithDifferentColorsTest[4]",
+      "uid" : "b31a2f48ed80f66f",
+      "parentUid" : "7a07ed00e15958e0c713a85f7a116564",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049119756,
+        "stop" : 1658049126601,
+        "duration" : 6845
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "7a07ed00e15958e0c713a85f7a116564"
+  }, {
+    "name" : "edu.sprint3.DeleteCourierTest",
+    "children" : [ {
+      "name" : "deleteCourierWithWrongIdFailsTest",
+      "uid" : "bcaebc46a9b59f25",
+      "parentUid" : "cfc3996f29a891fe9502e09d707be302",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049126606,
+        "stop" : 1658049128798,
+        "duration" : 2192
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "deleteCourierWithoutIdFailsTest",
+      "uid" : "5f02cdef57dd6cb1",
+      "parentUid" : "cfc3996f29a891fe9502e09d707be302",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049128802,
+        "stop" : 1658049130353,
+        "duration" : 1551
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "deleteCourierWrongRequestFailsTest",
+      "uid" : "d8fdbd35ce6649a9",
+      "parentUid" : "cfc3996f29a891fe9502e09d707be302",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049130355,
+        "stop" : 1658049132085,
+        "duration" : 1730
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "deleteCourierCorrectTest",
+      "uid" : "c408f50b680db0f8",
+      "parentUid" : "cfc3996f29a891fe9502e09d707be302",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049132089,
+        "stop" : 1658049133396,
+        "duration" : 1307
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "cfc3996f29a891fe9502e09d707be302"
+  }, {
+    "name" : "edu.sprint3.GetOrderByTrackTest",
+    "children" : [ {
+      "name" : "getOrderByTrackSuccessTest",
+      "uid" : "64b90ec5c62aadca",
+      "parentUid" : "02764d977c301ca3ae14eceee8239d92",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049133402,
+        "stop" : 1658049134814,
+        "duration" : 1412
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getOrderByTrackWithoutTrackFailsTest",
+      "uid" : "a23a3af5c36d1d06",
+      "parentUid" : "02764d977c301ca3ae14eceee8239d92",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049134818,
+        "stop" : 1658049135273,
+        "duration" : 455
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "getOrderByTrackWithWrongTrackFailsTest",
+      "uid" : "acd55a2e972e1fb8",
+      "parentUid" : "02764d977c301ca3ae14eceee8239d92",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049135276,
+        "stop" : 1658049135737,
+        "duration" : 461
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "02764d977c301ca3ae14eceee8239d92"
+  }, {
+    "name" : "edu.sprint3.LoginCourierTest",
+    "children" : [ {
+      "name" : "loginWithoutLoginFailsTest",
+      "uid" : "4e3690665380f522",
+      "parentUid" : "956ef911569d9663aaa8581622054133",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049135745,
+        "stop" : 1658049136191,
+        "duration" : 446
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "loginCourierSuccessTest",
+      "uid" : "9f3575d43955060f",
+      "parentUid" : "956ef911569d9663aaa8581622054133",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049136201,
+        "stop" : 1658049138030,
+        "duration" : 1829
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "loginWithoutPasswordFailsTest",
+      "uid" : "7676e235aca58195",
+      "parentUid" : "956ef911569d9663aaa8581622054133",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049138034,
+        "stop" : 1658049198386,
+        "duration" : 60352
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "checkLoginResponseReturnsIdTest",
+      "uid" : "7d626a71605ee086",
+      "parentUid" : "956ef911569d9663aaa8581622054133",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049198389,
+        "stop" : 1658049201538,
+        "duration" : 3149
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "loginWithEmptyLoginFailsTest",
+      "uid" : "798744a7bdb2afd9",
+      "parentUid" : "956ef911569d9663aaa8581622054133",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049201541,
+        "stop" : 1658049203404,
+        "duration" : 1863
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "loginWithEmptyPasswordFailsTest",
+      "uid" : "df34aaf2b3fedac5",
+      "parentUid" : "956ef911569d9663aaa8581622054133",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049203433,
+        "stop" : 1658049264407,
+        "duration" : 60974
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "loginWithWrongPasswordFailsTest",
+      "uid" : "91f886a0dea0839d",
+      "parentUid" : "956ef911569d9663aaa8581622054133",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049264412,
+        "stop" : 1658049265215,
+        "duration" : 803
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "loginWithWrongLoginFailsTest",
+      "uid" : "77baac9a90589eff",
+      "parentUid" : "956ef911569d9663aaa8581622054133",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049265218,
+        "stop" : 1658049265951,
+        "duration" : 733
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "956ef911569d9663aaa8581622054133"
+  }, {
+    "name" : "edu.sprint3.OrdersListTest",
+    "children" : [ {
+      "name" : "getOrdersListTest",
+      "uid" : "2d1261c7cf251335",
+      "parentUid" : "6490c6a62c0a643bd6bac0873fe821e8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1658049265958,
+        "stop" : 1658049270661,
+        "duration" : 4703
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "6490c6a62c0a643bd6bac0873fe821e8"
+  } ]
+}
